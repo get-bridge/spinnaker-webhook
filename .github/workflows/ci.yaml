@@ -7,7 +7,7 @@ jobs:
   works-input:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ./
         with:
           token: ${{ secrets.SPINNAKER_TOKEN }}
@@ -17,7 +17,7 @@ jobs:
   works-input-with-extra-params:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ./
         with:
           token: ${{ secrets.SPINNAKER_TOKEN }}
@@ -32,7 +32,7 @@ jobs:
       SPINNAKER_WEBHOOK_HOST: ${{ secrets.SPINNAKER_HOST }}
       SPINNAKER_WEBHOOK_NAME: ${{ secrets.SPINNAKER_NAME }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ./
 
   works-env-with-extra-params:
@@ -43,7 +43,7 @@ jobs:
       SPINNAKER_WEBHOOK_NAME: ${{ secrets.SPINNAKER_NAME }}
       SPINNAKER_WEBHOOK_EXTRA_PARAMS: '{"hello":"adam"}'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ./
 
   fails-no-token:
@@ -52,7 +52,7 @@ jobs:
       SPINNAKER_HOST: ${{ secrets.SPINNAKER_HOST }}
       SPINNAKER_WEBHOOK_NAME: ${{ secrets.SPINNAKER_NAME }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: |
           set +e
           ./spinnaker-webhook.sh
@@ -64,7 +64,7 @@ jobs:
       SPINNAKER_WEBHOOK_TOKEN: ${{ secrets.SPINNAKER_TOKEN }}
       SPINNAKER_WEBHOOK_NAME: ${{ secrets.SPINNAKER_NAME }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: |
           set +e
           ./spinnaker-webhook.sh
@@ -76,7 +76,7 @@ jobs:
       SPINNAKER_WEBHOOK_TOKEN: ${{ secrets.SPINNAKER_TOKEN }}
       SPINNAKER_WEBHOOK_HOST: ${{ secrets.SPINNAKER_HOST }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: |
           set +e
           ./spinnaker-webhook.sh
